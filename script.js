@@ -19,7 +19,7 @@ const collectEmployees = function() {
     let firstName = window.prompt("Type employee first name");
     let lastName = window.prompt("Type employee last name");
     let salary = window.prompt("Type employee salary");
-    let newEmployee = {firstName: firstName, lastName: lastName, salary: salary};
+    let newEmployee = {firstName: firstName, lastName: lastName, salary: Number(salary)};
     employeesArray.push(newEmployee);
 
     let userInput = window.prompt("Type 'add' to add another employee");
@@ -36,13 +36,15 @@ const displayAverageSalary = function(employeesArray) {
   for(i=0; i<employeesArray.length; i++) {
     averageSalary += employeesArray[i].salary;
   }
-  // averageSalary /= employeesArray.length;
+  averageSalary /= employeesArray.length;
   console.log("Average Salary: $" + averageSalary);
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+  let randomIndex = Math.floor(Math.random() * (employeesArray.length - 1));
+  console.log(employeesArray[randomIndex].firstName + " has won the raffle!");
 }
 
 /*
